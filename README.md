@@ -1,2 +1,2 @@
-# stori-challenge
-Stori challenge
+# Stori-QA-Automation-Challenge
+Stori QA automation challenge

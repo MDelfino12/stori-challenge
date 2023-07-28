@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.support.select import Select
 
 from tests.steps_defs.pages.practice_page import PracticePage
@@ -22,9 +24,11 @@ def test_dropdown_option_updates(driver):
     select = Select(dropdown)
     # Then
     select.select_by_value('option2')
+    time.sleep(5)
     assert 'option2' == dropdown.get_attribute('value')
     select.select_by_value('option3')
     assert 'option3' == dropdown.get_attribute('value')
+    time.sleep(5)
 
 
 def test_alert_pops_up(driver):
@@ -32,7 +36,9 @@ def test_alert_pops_up(driver):
     page = PracticePage(driver)
     # When
     page.enter_alert_text("Stori Card")
+    time.sleep(2)
     page.click_alert_btn()
+    time.sleep(2)
     alert = page.get_alert()
     # Then
     assert "Hello Stori Card, share this practice page and share your knowledge" == alert.text
@@ -45,7 +51,9 @@ def test_alert_pops_up_and_confirm_it(driver):
     page = PracticePage(driver)
     # When
     page.enter_alert_text("Stori Card")
+    time.sleep(2)
     page.click_confirm_btn()
+    time.sleep(2)
     alert = page.get_alert()
     # Then
     print(alert.text)
